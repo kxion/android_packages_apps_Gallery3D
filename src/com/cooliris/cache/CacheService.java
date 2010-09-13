@@ -76,7 +76,7 @@ public final class CacheService extends IntentService {
 
     private static final String TAG = "CacheService";
     private static ImageList sList = null;
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     // Wait n seconds to start the thumbnailer so that the application can load
     // without any overheads.
