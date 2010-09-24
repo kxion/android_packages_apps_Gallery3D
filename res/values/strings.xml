@@ -15,6 +15,8 @@
 -->
 
 <resources>
+	<string name="highresSig">With HighRes patch by Petar Šegina</string>
+
 	<string name="app_name">Gallery</string>
 	<string-array name="months_abbreviated">
 		<item>Jan</item>
