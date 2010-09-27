@@ -42,6 +42,9 @@ public class App {
     public static final TimeZone CURRENT_TIME_ZONE = TimeZone.getDefault();
     public static float PIXEL_DENSITY = 0.0f;
     
+    public static int SCREEN_WIDTH = 0;
+    public static int SCREEN_HEIGHT = 0;
+    
 	private final Context mContext;
     private final HandlerThread mHandlerThread = new HandlerThread("AppHandlerThread");
     private final Handler mHandler;	
@@ -54,11 +57,18 @@ public class App {
 		mMap.put(context, this);
 		
 		mContext = context;
-				
+
+		// get metrics
+		DisplayMetrics metrics = new DisplayMetrics();
+		((Activity)mContext).getWindowManager().getDefaultDisplay().getMetrics(metrics);
+		
 		if(PIXEL_DENSITY == 0.0f) {
-			DisplayMetrics metrics = new DisplayMetrics();
-			((Activity)mContext).getWindowManager().getDefaultDisplay().getMetrics(metrics);
 			PIXEL_DENSITY = metrics.density;
+		}
+		
+		if(SCREEN_HEIGHT==0 && SCREEN_WIDTH==0){
+			SCREEN_HEIGHT = Math.min(metrics.widthPixels, metrics.heightPixels);
+			SCREEN_WIDTH = Math.max(metrics.widthPixels, metrics.heightPixels);
 		}
 
         mHandlerThread.start();
