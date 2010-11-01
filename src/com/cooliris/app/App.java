@@ -63,9 +63,11 @@ public class App {
      */
     public static final int RESPATCH_DIVISOR = 9;
     
+    public static int PIXEL_DENSITY_DPI = 0;
+
 	private final Context mContext;
     private final HandlerThread mHandlerThread = new HandlerThread("AppHandlerThread");
-    private final Handler mHandler;	
+    private final Handler mHandler;
     private ReverseGeocoder mReverseGeocoder = null;
     
     private boolean mPaused = false;
@@ -82,6 +84,7 @@ public class App {
 		
 		if(PIXEL_DENSITY == 0.0f) {
 			PIXEL_DENSITY = metrics.density;
+			PIXEL_DENSITY_DPI = metrics.densityDpi;
 		}
 		
 		if(SCREEN_HEIGHT==0 && SCREEN_WIDTH==0){
@@ -103,7 +106,7 @@ public class App {
 		}
 
         mHandlerThread.start();
-        mHandler = new Handler(mHandlerThread.getLooper());		
+        mHandler = new Handler(mHandlerThread.getLooper());
 		
 	    mReverseGeocoder = new ReverseGeocoder(mContext);					
 	}
