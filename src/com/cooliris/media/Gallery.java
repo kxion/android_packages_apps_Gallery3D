@@ -114,7 +114,7 @@ public final class Gallery extends Activity {
             return;
         }
         mRenderView = new RenderView(this);
-        mGridLayer = new GridLayer(this, (int) (96.0f * App.PIXEL_DENSITY), (int) (72.0f * App.PIXEL_DENSITY), new GridLayoutInterface(4),
+        mGridLayer = new GridLayer(this, (int) (96.0f * App.PIXEL_DENSITY), (int) (96.0f * App.SCREEN_RATIO * App.PIXEL_DENSITY), new GridLayoutInterface(4),
                 mRenderView);
         mRenderView.setRootLayer(mGridLayer);
         setContentView(mRenderView);

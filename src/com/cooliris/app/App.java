@@ -44,6 +44,7 @@ public class App {
     
     public static int SCREEN_WIDTH = 0;
     public static int SCREEN_HEIGHT = 0;
+    public static double SCREEN_RATIO = 0.0;
     
     /*
      * The upscaling factor used for the respatch.
@@ -90,6 +91,7 @@ public class App {
 		if(SCREEN_HEIGHT==0 && SCREEN_WIDTH==0){
 			SCREEN_HEIGHT = Math.min(metrics.widthPixels, metrics.heightPixels);
 			SCREEN_WIDTH = Math.max(metrics.widthPixels, metrics.heightPixels);
+			SCREEN_RATIO = (double) SCREEN_HEIGHT / SCREEN_WIDTH;
 		}
 		
 		/*
